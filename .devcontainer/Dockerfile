@@ -7,13 +7,18 @@ RUN apt-get update && apt-get install -y build-essential cmake git python3
 # Set the working directory to /workspaces
 WORKDIR /workspaces
 
+# Change ownership of the /workspaces directory to the vscode user
+RUN chown -R vscode:vscode /workspaces
+
+# Switch to the vscode user
+USER vscode
+
 # Install Emscripten
 RUN git clone https://github.com/emscripten-core/emsdk.git emsdk && \
     cd emsdk && \
     ./emsdk install latest && \
     ./emsdk activate latest && \
-    echo "source /workspaces/emsdk/emsdk_env.sh" >> ~/.bashrc && \
-    chown -R vscode:vscode /workspaces
+    echo "source /workspaces/emsdk/emsdk_env.sh" >> ~/.bashrc
 
 # Use bash for the following commands
 SHELL ["/bin/bash", "-c"]
@@ -29,6 +34,3 @@ RUN git clone https://github.com/raysan5/raylib.git raylib && \
     cd raylib/src && \
     source /workspaces/emsdk/emsdk_env.sh && \
     make PLATFORM=PLATFORM_WEB -j$(nproc)
-
-# Source .bashrc to ensure emsdk is available in all terminal instances
-RUN echo "source ~/.bashrc" >> /root/.bashrc
