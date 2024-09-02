@@ -34,3 +34,7 @@ RUN git clone https://github.com/raysan5/raylib.git raylib && \
     cd raylib/src && \
     source /workspaces/emsdk/emsdk_env.sh && \
     make PLATFORM=PLATFORM_WEB -j$(nproc)
+
+# Configure Git
+RUN git config --global user.name "Pipyakas" && \
+    git config --global user.email "pipyakas@gmail.com"
