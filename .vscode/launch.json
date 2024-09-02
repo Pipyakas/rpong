@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Game",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "Build Raylib WASM Game",
+      "runtimeExecutable": "xdg-open",
+      "args": ["http://localhost:8000/game.html"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Raylib WASM Game",
+      "type": "shell",
+      "command": "make",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Local Web Server",
+      "type": "shell",
+      "command": "python3 -m http.server 8000",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "Open Game in Browser",
+      "type": "shell",
+      "command": "xdg-open http://localhost:8000/game.html",
+      "dependsOn": "Start Local Web Server",
+      "problemMatcher": []
+    }
+  ]
+}
