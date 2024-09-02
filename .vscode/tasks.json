@@ -25,7 +25,7 @@
     {
       "label": "Open Game in Browser",
       "type": "shell",
-      "command": "xdg-open http://localhost:8000/game.html",
+      "command": "xdg-open http://localhost:8000/rpong.html",
       "dependsOn": "Start Local Web Server",
       "problemMatcher": []
     }

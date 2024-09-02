@@ -7,7 +7,7 @@
       "request": "launch",
       "preLaunchTask": "Build Raylib WASM Game",
       "runtimeExecutable": "xdg-open",
-      "args": ["http://localhost:8000/game.html"],
+      "args": ["http://localhost:8000/rpong.html"],
       "presentation": {
         "reveal": "always",
         "panel": "new"

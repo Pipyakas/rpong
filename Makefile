@@ -1,5 +1,5 @@
 # Project
-PROJECT_NAME       ?= game
+PROJECT_NAME       ?= rpong
 PROJECT_SOURCE     ?= main.c
 RAYLIB_PATH        ?= /workspaces/raylib
 EMSDK_PATH         ?= /workspaces/emsdk
