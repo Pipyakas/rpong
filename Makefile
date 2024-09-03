@@ -1,8 +1,8 @@
 # Project
 PROJECT_NAME       ?= rpong
 PROJECT_SOURCE     ?= main.c
-RAYLIB_PATH        ?= /workspaces/raylib
-EMSDK_PATH         ?= /workspaces/emsdk
+RAYLIB_PATH        ?= /home/vscode/raylib
+EMSDK_PATH         ?= /home/vscode/emsdk
 
 # Compiler
 CC                 := emcc

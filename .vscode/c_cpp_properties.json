@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/workspaces/raylib/src"
+                "/home/vscode/raylib/src"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
