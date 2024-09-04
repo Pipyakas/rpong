@@ -6,7 +6,7 @@ EMSDK_PATH         ?= /home/vscode/emsdk
 
 # Compiler
 CC                 := emcc
-CFLAGS             := -Os -Wall -I$(RAYLIB_PATH)/src -L$(RAYLIB_PATH)/src -s USE_GLFW=3 --shell-file $(RAYLIB_PATH)/src/minshell.html -DPLATFORM_WEB -s ASYNCIFY
+CFLAGS             := -Os -Wall -I$(RAYLIB_PATH)/src -L$(RAYLIB_PATH)/src -s USE_GLFW=3 --shell-file custom_shell.html -DPLATFORM_WEB -s ASYNCIFY
 
 # Build target
 all: $(RAYLIB_PATH)/src/libraylib.a

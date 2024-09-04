@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pong Game</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Change this line to set the background color to black */
+        }
+
+        #canvas-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <script>
+        var Module = {
+            preRun: [],
+            postRun: [],
+            canvas: (function () {
+                var canvas = document.getElementById('canvas');
+                return canvas;
+            })(),
+            setStatus: function (text) {
+                if (!Module.setStatus.last) Module.setStatus.last = { time: Date.now(), text: '' };
+                if (text === Module.setStatus.last.text) return;
+                var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+                var now = Date.now();
+                if (m && now - Module.setStatus.last.time < 30) return; // if this is a progress update, skip it if too soon
+                Module.setStatus.last.time = now;
+                Module.setStatus.last.text = text;
+            },
+            totalDependencies: 0,
+            monitorRunDependencies: function (left) {
+                this.totalDependencies = Math.max(this.totalDependencies, left);
+                Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+            }
+        };
+        Module.setStatus('Downloading...');
+
+        function resizeCanvas() {
+            var canvas = document.getElementById('canvas');
+            var container = document.getElementById('canvas-container');
+            var aspectRatio = 800 / 450; // Original aspect ratio of the game
+            var containerWidth = container.clientWidth - 20; // Leave a 10px gap on each side
+            var containerHeight = container.clientHeight - 20; // Leave a 10px gap on each side
+
+            if (containerWidth / containerHeight > aspectRatio) {
+                canvas.style.width = containerHeight * aspectRatio + 'px';
+                canvas.style.height = containerHeight + 'px';
+            } else {
+                canvas.style.width = containerWidth + 'px';
+                canvas.style.height = containerWidth / aspectRatio + 'px';
+            }
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('load', resizeCanvas);
+        resizeCanvas(); // Call the function immediately to set the initial size
+    </script>
+    {{{ SCRIPT }}}
+</body>
+
+</html>
