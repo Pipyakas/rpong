@@ -7,7 +7,7 @@
       "command": "make",
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": false
       },
       "problemMatcher": []
     },
@@ -27,6 +27,17 @@
       "type": "shell",
       "command": "xdg-open http://localhost:8000/rpong.html",
       "dependsOn": "Start Local Web Server",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Raylib Game for Windows",
+      "type": "shell",
+      "command": "C:/raylib/w64devkit/bin/mingw32-make",
+      "args": ["-f", "Makefile.windows"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
       "problemMatcher": []
     }
   ]

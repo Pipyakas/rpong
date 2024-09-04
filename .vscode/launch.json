@@ -2,15 +2,28 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Game",
-      "type": "node",
+      "name": "Debug rpong",
+      "type": "cppdbg",
       "request": "launch",
-      "preLaunchTask": "Build Raylib WASM Game",
-      "runtimeExecutable": "xdg-open",
-      "args": ["http://localhost:8000/rpong.html"],
-      "presentation": {
-        "reveal": "always",
-        "panel": "new"
+      "program": "${workspaceFolder}/rpong.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/raylib/w64devkit/bin/gdb.exe",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Build Raylib Game for Windows",
+      "internalConsoleOptions": "openOnSessionStart",
+      "logging": {
+        "engineLogging": true
       }
     }
   ]

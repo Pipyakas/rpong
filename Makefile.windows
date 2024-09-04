@@ -1,0 +1,23 @@
+# Project
+PROJECT_NAME       ?= rpong
+PROJECT_SOURCE     ?= main.c
+RAYLIB_PATH        ?= C:/raylib/raylib
+W64DEVKIT_PATH     ?= C:/raylib/w64devkit
+
+# Compiler and flags
+CC                 := $(W64DEVKIT_PATH)/bin/gcc
+CFLAGS             := -g -O0 -Wall -I$(RAYLIB_PATH)/src
+LDFLAGS            := -L$(RAYLIB_PATH)/src -lraylib -lopengl32 -lgdi32 -lwinmm
+
+# Build target
+all: $(PROJECT_NAME).exe
+
+$(PROJECT_NAME).exe: $(PROJECT_SOURCE) $(RAYLIB_PATH)/src/libraylib.a
+	$(CC) -o $@ $< $(CFLAGS) $(LDFLAGS)
+
+$(RAYLIB_PATH)/src/libraylib.a:
+	cd $(RAYLIB_PATH)/src && $(W64DEVKIT_PATH)/bin/mingw32-make PLATFORM=PLATFORM_DESKTOP -j$(NUMBER_OF_PROCESSORS)
+
+clean:
+	del /f $(PROJECT_NAME).exe
+	cd $(RAYLIB_PATH)/src && $(W64DEVKIT_PATH)/bin/mingw32-make clean
