@@ -15,7 +15,7 @@ RUN git clone https://github.com/emscripten-core/emsdk.git emsdk && \
     cd emsdk && \
     ./emsdk install latest && \
     ./emsdk activate latest && \
-    echo "source /home/vscode/emsdk/emsdk_env.sh" >> ~/.bashrc
+    echo "EMSDK_QUIET=1 source /home/vscode/emsdk/emsdk_env.sh" >> ~/.bashrc
 
 # Use bash for the following commands
 SHELL ["/bin/bash", "-c"]
