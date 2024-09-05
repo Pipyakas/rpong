@@ -9,8 +9,5 @@
 		{
 			"path": "/home/vscode/raylib"
 		}
-	],
-	"settings": {
-		"makefile.configureOnOpen": true
-	}
+	]
 }

@@ -19,5 +19,5 @@ $(RAYLIB_PATH)/src/libraylib.a:
 	cd $(RAYLIB_PATH)/src && $(W64DEVKIT_PATH)/bin/mingw32-make PLATFORM=PLATFORM_DESKTOP -j$(NUMBER_OF_PROCESSORS)
 
 clean:
-	del /f $(PROJECT_NAME).exe
+	-del /f $(PROJECT_NAME).exe
 	cd $(RAYLIB_PATH)/src && $(W64DEVKIT_PATH)/bin/mingw32-make clean
