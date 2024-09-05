@@ -20,7 +20,7 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "Build Raylib Game for Windows",
+      "preLaunchTask": "Build for Windows",
       "internalConsoleOptions": "openOnSessionStart",
       "logging": {
         "engineLogging": true

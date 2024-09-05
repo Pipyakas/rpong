@@ -2,9 +2,21 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build Raylib WASM Game",
+      "label": "Build for Web",
       "type": "shell",
       "command": "make",
+      "args": ["-f", "Makefile.web"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build for Windows",
+      "type": "shell",
+      "command": "C:/raylib/w64devkit/bin/mingw32-make",
+      "args": ["-f", "Makefile.windows"],
       "group": {
         "kind": "build",
         "isDefault": false
@@ -16,29 +28,12 @@
       "type": "shell",
       "command": "python3 -m http.server 8000",
       "group": {
+
         "kind": "test",
         "isDefault": true
       },
       "problemMatcher": [],
       "isBackground": true
-    },
-    {
-      "label": "Open Game in Browser",
-      "type": "shell",
-      "command": "xdg-open http://localhost:8000/rpong.html",
-      "dependsOn": "Start Local Web Server",
-      "problemMatcher": []
-    },
-    {
-      "label": "Build Raylib Game for Windows",
-      "type": "shell",
-      "command": "C:/raylib/w64devkit/bin/mingw32-make",
-      "args": ["-f", "Makefile.windows"],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
-      "problemMatcher": []
     }
   ]
 }
